@@ -15,4 +15,15 @@ public class Ingreso_De_Numeros {
 			return ingresarnumero();
 		}
 	}
+
+	public static Integer[] Ingresarvector(int longitud) {
+		Scanner teclado = new Scanner(System.in);
+		Integer[] vector = new Integer[longitud];
+		for (int i = 0; i < vector.length; i++) {
+			System.out.print("Ingrese el " + (i + 1) + " elemento: ");
+			vector[i] = teclado.nextInt();
+		}
+		teclado.close();
+		return vector;
+	}
 }

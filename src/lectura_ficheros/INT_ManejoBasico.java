@@ -10,6 +10,12 @@ public interface INT_ManejoBasico {
 
 	public boolean puedeEjecutarFichero(Path ejecutable);
 
+	/**
+	 * Metodo que devuelve el tamaño de un archivo en bytes. 
+	 * 
+	 * @param tamanio
+	 * @return
+	 */
 	public long tamanioFichero(Path tamanio);
 
 	public String rutaAbsoluta(Path rutaAbso);

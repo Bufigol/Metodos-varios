@@ -1,5 +1,7 @@
 package lectura_ficheros;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.attribute.FileTime;
 
@@ -18,19 +20,42 @@ public class ManejoBasico implements INT_ManejoBasico {
 	@Override
 	public boolean puedeEscribirFichero(Path escribible) {
 		// TODO Auto-generated method stub
-		return false;
+		if (escribible.toFile().canWrite()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean puedeEjecutarFichero(Path ejecutable) {
 		// TODO Auto-generated method stub
-		return false;
+		if (ejecutable.toFile().canExecute()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public long tamanioFichero(Path tamanio) {
 		// TODO Auto-generated method stub
-		return 0;
+		long salida=0;
+		if (tamanio.toFile().exists()) {
+			if (tamanio.toFile().isFile()) {
+				try {
+					salida = Files.size(tamanio);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else {
+				salida = -1;
+			}
+		}else{
+			salida= -2;
+		}
+		return salida;
 	}
 
 	@Override

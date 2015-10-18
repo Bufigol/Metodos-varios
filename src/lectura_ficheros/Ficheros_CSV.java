@@ -6,36 +6,30 @@ import java.util.*;
 
 public class Ficheros_CSV {
 	/**
-	 * Metodo que lee he imprime la información de un archivo CSV.
+	 * Metodo que a partir de la ruta de un archivo CSV se genera una lista con
+	 * toda la información contentida en el mismo.
 	 * 
-	 * @param ruta_entrada
+	 * @param ruta_archivo
+	 * @return
 	 * @throws IOException
-	 * @throws ClassNotFoundException
 	 */
-	public static void leer_archivo(String ruta_entrada) throws IOException,
-			ClassNotFoundException {
-		Path archivo = FileSystems.getDefault().getPath(ruta_entrada);
-
-		if (archivo.getFileName().toString().endsWith("csv")) {
-			Scanner scanner = new Scanner(archivo.toFile());
-			scanner.useDelimiter(",");
-			while (scanner.hasNext()) {
-				System.out.print(scanner.next() + "|");
+	public ArrayList<String[]> leer_archivo(String ruta_archivo)
+			throws IOException {
+		Path archivo = FileSystems.getDefault().getPath(ruta_archivo);
+		if (archivo.toFile().exists() && archivo.toFile().isFile()
+				&& archivo.getFileName().toString().endsWith(".csv")) {
+			ArrayList<String[]> salida = new ArrayList<String[]>();
+			BufferedReader lector = new BufferedReader(new FileReader(archivo
+					.toAbsolutePath().toString()));
+			String linea;
+			while ((linea = lector.readLine()) != null) {
+				salida.add(linea.split(","));
 			}
-			scanner.close();
+			lector.close();
+			return salida;
 		} else {
-			System.out.println("No es un archivo CSV");
+			return null;
 		}
 
-	}
-
-	public static void main(String[] args) {
-
-		try {
-			leer_archivo("Ingrese aqui la ruta del archvio");
-		} catch (ClassNotFoundException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 }

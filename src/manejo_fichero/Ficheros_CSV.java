@@ -1,4 +1,4 @@
-package lectura_ficheros;
+package manejo_fichero;
 
 import java.io.*;
 import java.nio.file.*;

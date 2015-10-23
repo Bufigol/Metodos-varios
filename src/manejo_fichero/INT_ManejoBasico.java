@@ -1,4 +1,4 @@
-package lectura_ficheros;
+package manejo_fichero;
 
 import java.nio.file.Path;
 import java.nio.file.attribute.FileTime;

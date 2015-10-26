@@ -1,5 +1,7 @@
 package ingreso_por_teclado;
-
+/*
+*prueba de conexion
+*/
 import java.util.Scanner;
 
 public class Ingreso_De_Numeros {

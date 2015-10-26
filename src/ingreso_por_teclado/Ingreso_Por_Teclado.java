@@ -1,10 +1,19 @@
 package ingreso_por_teclado;
-/*
-*prueba de conexion
-*/
+
 import java.util.Scanner;
 
-public class Ingreso_De_Numeros {
+public class Ingreso_Por_Teclado implements INT_IngresoPorTeclado {
+
+	@Override
+	public String ingresarlinea() {
+		Scanner teclado = new Scanner(System.in);
+		System.out.print("Ingrese una frase: ");
+		String salida = teclado.nextLine();
+		teclado.close();
+		return salida;
+	}
+
+	@Override
 	public Long ingresarnumero() {
 		try {
 			Scanner teclado = new Scanner(System.in);
@@ -18,7 +27,8 @@ public class Ingreso_De_Numeros {
 		}
 	}
 
-	public static Integer[] Ingresarvector(int longitud) {
+	@Override
+	public Integer[] Ingresarvector(int longitud) {
 		Scanner teclado = new Scanner(System.in);
 		Integer[] vector = new Integer[longitud];
 		for (int i = 0; i < vector.length; i++) {
@@ -28,4 +38,5 @@ public class Ingreso_De_Numeros {
 		teclado.close();
 		return vector;
 	}
+
 }

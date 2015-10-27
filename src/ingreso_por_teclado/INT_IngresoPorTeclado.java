@@ -1,5 +1,7 @@
 package ingreso_por_teclado;
 
+
+// prueba de conexión JM
 public interface INT_IngresoPorTeclado {
 	public String ingresarlinea();
 

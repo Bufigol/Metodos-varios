@@ -9,7 +9,7 @@ public interface INT_Otros_Metodos {
 	/**
 	 * Metodo que a partir de una cadena de caracteres espedifica se combierte a
 	 * la fecha correspondiente
-	 * 
+	 *
 	 * @author Bufigol
 	 * @param entada
 	 *            Un string correspondiente a la fecha con el formato YYYYMMDD
@@ -17,4 +17,6 @@ public interface INT_Otros_Metodos {
 	 * @throws ParseException
 	 */
 	public Date paso_a_fecha(String entada) throws ParseException;
+
+	public void Fibonacci(int n);
 }

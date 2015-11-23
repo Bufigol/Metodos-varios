@@ -14,8 +14,21 @@ public class Otros_Metodos implements INT_Otros_Metodos {
 		return stringFecha;
 	}
 
+	@Override
 	public Date paso_a_fecha(String entada) throws ParseException {
 		SimpleDateFormat paso_a_fecha = new SimpleDateFormat("YYYYMMDD");
 		return paso_a_fecha.parse(entada);
+	}
+
+	@Override
+	public void Fibonacci(int n) {
+		int fibo1 = 1;
+		int fibo2 = 1;
+		System.out.print(fibo1 + " ");
+		for (int i = 2; i <= n; i++) {
+			System.out.print(fibo2 + " ");
+			fibo2 = fibo1 + fibo2;
+			fibo1 = fibo2 - fibo1;
+		}
 	}
 }

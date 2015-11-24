@@ -21,4 +21,8 @@ public interface INT_Otros_Metodos {
 	public void Fibonacci(int n);
 
 	public long factorial(long N);
+
+	public int[] ordenar_vector(int[] vector_entrada);
+
+	public void imprimir_vector(int[] vector);
 }

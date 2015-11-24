@@ -40,4 +40,31 @@ public class Otros_Metodos implements INT_Otros_Metodos {
 			return N * (factorial(N - 1));
 		}
 	}
+
+	@Override
+	public int[] ordenar_vector(int[] vector_entrada) {
+		int[] arr = vector_entrada;
+		for (int i = arr.length - 1; i > 0; i--) {
+			for (int j = 0; j < i; j++) {
+				if (arr[j] > arr[j + 1]) {
+					int temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+				}
+			}
+		}
+		return arr;
+	}
+
+	@Override
+	public void imprimir_vector(int[] vector) {
+		System.out.print("[" + vector[0] + " , ");
+		for (int i = 1; i < vector.length; i++) {
+			if (i != (vector.length - 1)) {
+				System.out.print(vector[i] + " , ");
+			} else {
+				System.out.println(vector[i] + "]");
+			}
+		}
+	}
 }

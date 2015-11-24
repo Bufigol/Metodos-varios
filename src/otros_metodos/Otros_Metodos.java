@@ -31,4 +31,13 @@ public class Otros_Metodos implements INT_Otros_Metodos {
 			fibo1 = fibo2 - fibo1;
 		}
 	}
+
+	@Override
+	public long factorial(long N) {
+		if (N == 0) {
+			return 1;
+		} else {
+			return N * (factorial(N - 1));
+		}
+	}
 }

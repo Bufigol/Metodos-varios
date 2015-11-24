@@ -19,4 +19,6 @@ public interface INT_Otros_Metodos {
 	public Date paso_a_fecha(String entada) throws ParseException;
 
 	public void Fibonacci(int n);
+
+	public long factorial(long N);
 }

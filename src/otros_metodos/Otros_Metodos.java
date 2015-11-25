@@ -2,7 +2,9 @@ package otros_metodos;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Otros_Metodos implements INT_Otros_Metodos {
 
@@ -66,5 +68,22 @@ public class Otros_Metodos implements INT_Otros_Metodos {
 				System.out.println(vector[i] + "]");
 			}
 		}
+	}
+
+	@Override
+	public int obtener_edad(int dia, int mes, int año) {
+		GregorianCalendar cal = new GregorianCalendar();
+		int year = cal.get(Calendar.YEAR);
+		int month = cal.get(Calendar.MONTH);
+		int day = cal.get(Calendar.DAY_OF_MONTH);
+		cal.set(año, mes, dia);
+		int a = year - cal.get(Calendar.YEAR);
+		if ((month < cal.get(Calendar.MONTH))
+				|| ((month == cal.get(Calendar.MONTH)) && (day < cal.get(Calendar.DAY_OF_MONTH)))) {
+			--a;
+		}
+		if (a < 0)
+			throw new IllegalArgumentException("Age < 0");
+		return a;
 	}
 }

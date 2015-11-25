@@ -25,4 +25,6 @@ public interface INT_Otros_Metodos {
 	public int[] ordenar_vector(int[] vector_entrada);
 
 	public void imprimir_vector(int[] vector);
+
+	public int obtener_edad(int dia, int mes, int año);
 }

@@ -14,7 +14,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class Manejo_XML {
-	public void read_team_xml(String route) {
+	public void read_xml(String route) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
 		try {

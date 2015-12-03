@@ -27,4 +27,6 @@ public interface INT_Otros_Metodos {
 	public void imprimir_vector(int[] vector);
 
 	public int obtener_edad(int dia, int mes, int año);
+
+	public void load_xml_from_uri(String url);
 }

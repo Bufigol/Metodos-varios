@@ -1,5 +1,12 @@
 package otros_metodos;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -85,5 +92,26 @@ public class Otros_Metodos implements INT_Otros_Metodos {
 		if (a < 0)
 			throw new IllegalArgumentException("Age < 0");
 		return a;
+	}
+
+	public void load_xml_from_uri(String url) {
+		try {
+			URL direccion_xml = new URL(url);
+			HttpURLConnection conection = (HttpURLConnection) direccion_xml.openConnection();
+			conection.connect();
+			InputStream stream = conection.getInputStream();
+			BufferedReader streamReader = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
+			StringBuilder respondeStrBuilder = new StringBuilder();
+			String inputStr;
+
+			while ((inputStr = streamReader.readLine()) != null) {
+				respondeStrBuilder.append(inputStr);
+				System.out.println(inputStr);
+			}
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
